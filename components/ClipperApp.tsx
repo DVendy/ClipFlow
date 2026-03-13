@@ -57,7 +57,7 @@ export default function ClipperApp() {
     try {
       const ffmpeg = await loadFFmpeg();
       setStatus("Uploading video to memory...");
-      
+
       const fileName = videoFile.name;
       await ffmpeg.writeFile(fileName, await fetchFile(videoFile));
 
@@ -65,12 +65,12 @@ export default function ClipperApp() {
 
       for (let i = 0; i < segments.length; i++) {
         const segment = segments[i];
-        const outputName = segment.filename 
+        const outputName = segment.filename
           ? (segment.filename.endsWith('.mp4') ? segment.filename : `${segment.filename}.mp4`)
           : `clip-${i + 1}.mp4`;
-        
+
         setStatus(`Processing ${outputName}...`);
-        
+
         await ffmpeg.exec([
           "-ss", segment.start,
           "-to", segment.end,
@@ -103,29 +103,18 @@ export default function ClipperApp() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-10">
-      <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-3xl font-black tracking-tighter text-zinc-900 dark:text-white flex items-center gap-3">
-            <span className="bg-primary px-3 py-1 rounded-2xl text-white">Clip</span>
-            <span>Trim</span>
-          </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-lg font-medium">
-            High-speed browser-based video clipper.
-          </p>
-        </div>
-        {isMobile && (
-          <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 p-4 rounded-2xl flex items-start gap-3 max-w-md">
-            <HugeiconsIcon icon={Alert01Icon} className="size-5 text-amber-600 shrink-0 mt-0.5" />
-            <div className="flex flex-col gap-1">
-              <p className="text-xs font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">Mobile Warning</p>
-              <p className="text-sm text-amber-700 dark:text-amber-500 leading-relaxed">
-                FFmpeg WASM works best on Desktop. Mobile browsers may experience crashes or very slow processing.
-              </p>
-            </div>
+    <div className="w-full flex flex-col">
+      {isMobile && (
+        <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 p-4 rounded-2xl flex items-start gap-3 mb-10">
+          <HugeiconsIcon icon={Alert01Icon} className="size-5 text-amber-600 shrink-0 mt-0.5" />
+          <div className="flex flex-col gap-1">
+            <p className="text-xs font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">Mobile Warning</p>
+            <p className="text-sm text-amber-700 dark:text-amber-500 leading-relaxed">
+              FFmpeg WASM works best on Desktop. Mobile browsers may experience crashes or very slow processing.
+            </p>
           </div>
-        )}
-      </header>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-12 xl:col-span-7 flex flex-col gap-8">
@@ -150,12 +139,12 @@ export default function ClipperApp() {
                 <span className="text-sm font-bold">YouTube Content Policy</span>
               </div>
               <p className="text-xs text-zinc-500 dark:text-zinc-500 leading-relaxed">
-                Due to copyright and Terms of Service, we do not support direct YouTube downloads. 
+                Due to copyright and Terms of Service, we do not support direct YouTube downloads.
                 However, you can download your clips locally first and then use MomentClipper.
               </p>
-              <a 
-                href="https://www.google.com/search?q=download+youtube+video" 
-                target="_blank" 
+              <a
+                href="https://www.google.com/search?q=download+youtube+video"
+                target="_blank"
                 className="text-primary text-[10px] font-black uppercase tracking-wider hover:underline flex items-center gap-1"
               >
                 Search for YouTube Downloaders

@@ -51,7 +51,7 @@ export default function VideoUploader({
             <p className="text-sm text-zinc-500 font-medium group-hover:text-zinc-700 transition-colors">
               Click to upload or drag and drop
             </p>
-            <p className="text-xs text-zinc-400">MP4, WebM, MOV, AVI</p>
+            <p className="text-sm text-zinc-400">MP4, WebM, MOV, AVI</p>
           </div>
         ) : (
           <div className="w-full flex flex-col gap-4">
@@ -67,7 +67,7 @@ export default function VideoUploader({
                 <p className="text-sm font-bold truncate max-w-[240px] text-zinc-900 dark:text-white">
                   {selectedFile.name}
                 </p>
-                <p className="text-xs font-medium text-zinc-500">
+                <p className="text-sm font-medium text-zinc-500">
                   {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
                 </p>
               </div>

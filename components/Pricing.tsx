@@ -40,7 +40,10 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-4">
+        <div 
+          data-aos="fade-up"
+          className="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-4"
+        >
           <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white">
             Simple Pricing
           </h2>
@@ -53,6 +56,8 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <div 
               key={index} 
+              data-aos={index === 0 ? "fade-right" : "fade-left"}
+              data-aos-delay={200}
               className={`relative flex flex-col gap-8 p-10 rounded-[32px] border transition-all ${
                 plan.popular 
                   ? "bg-zinc-900 border-zinc-800 shadow-2xl scale-105 z-10" 

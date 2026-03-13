@@ -51,7 +51,7 @@ export default function TimelineEditor({
           <div className="text-center py-12 text-zinc-500 bg-zinc-50/50 dark:bg-zinc-900/50 rounded-2xl border-2 border-dashed border-zinc-200 dark:border-zinc-800">
             <HugeiconsIcon icon={Time01Icon} className="size-12 mx-auto mb-3 opacity-20" />
             <p className="font-medium">No segments added yet</p>
-            <p className="text-xs opacity-60">Click "Add Segment" to start clipping</p>
+            <p className="text-sm opacity-60">Click "Add Segment" to start clipping</p>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
@@ -65,7 +65,7 @@ export default function TimelineEditor({
                   className="flex flex-col gap-4 p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 relative group shadow-sm hover:shadow-md transition-all"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/40">
+                    <span className="text-sm font-black uppercase tracking-[0.2em] text-primary/40">
                       Segment #{index + 1}
                     </span>
                     <Button
@@ -81,7 +81,7 @@ export default function TimelineEditor({
                   <div className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div className="flex flex-col gap-1.5">
-                        <Label htmlFor={`start-${segment.id}`} className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                        <Label htmlFor={`start-${segment.id}`} className="text-sm font-bold uppercase tracking-wider text-zinc-400">
                           Start Time
                         </Label>
                         <div className="relative">
@@ -95,12 +95,12 @@ export default function TimelineEditor({
                             className={`bg-zinc-50 dark:bg-zinc-950 border-none h-11 font-mono text-center text-lg rounded-xl focus-visible:ring-primary/20 ${!isStartValid && segment.start !== '' ? 'ring-2 ring-red-500/20 text-red-500' : ''}`}
                           />
                           {!isStartValid && segment.start !== '' && (
-                            <span className="absolute -bottom-4 left-0 text-[10px] text-red-500 font-medium">Use HH:MM:SS</span>
+                            <span className="absolute -bottom-5 left-0 text-sm text-red-500 font-medium">Use HH:MM:SS</span>
                           )}
                         </div>
                       </div>
                       <div className="flex flex-col gap-1.5">
-                        <Label htmlFor={`end-${segment.id}`} className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                        <Label htmlFor={`end-${segment.id}`} className="text-sm font-bold uppercase tracking-wider text-zinc-400">
                           End Time
                         </Label>
                         <div className="relative">
@@ -114,14 +114,14 @@ export default function TimelineEditor({
                             className={`bg-zinc-50 dark:bg-zinc-950 border-none h-11 font-mono text-center text-lg rounded-xl focus-visible:ring-primary/20 ${!isEndValid && segment.end !== '' ? 'ring-2 ring-red-500/20 text-red-500' : ''}`}
                           />
                           {!isEndValid && segment.end !== '' && (
-                            <span className="absolute -bottom-4 left-0 text-[10px] text-red-500 font-medium">Use HH:MM:SS</span>
+                            <span className="absolute -bottom-5 left-0 text-sm text-red-500 font-medium">Use HH:MM:SS</span>
                           )}
                         </div>
                       </div>
                     </div>
                     
                     <div className="flex flex-col gap-1.5">
-                      <Label htmlFor={`filename-${segment.id}`} className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                      <Label htmlFor={`filename-${segment.id}`} className="text-sm font-bold uppercase tracking-wider text-zinc-400">
                         Custom Filename (Optional)
                       </Label>
                       <Input

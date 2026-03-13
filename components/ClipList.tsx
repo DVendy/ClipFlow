@@ -44,7 +44,7 @@ export default function ClipList({ clips }: ClipListProps) {
                 <p className="text-sm font-black truncate text-zinc-900 dark:text-white">
                   {clip.name}
                 </p>
-                <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                <span className="text-sm font-bold text-zinc-400 uppercase tracking-widest">
                   Clip #{index + 1}
                 </span>
               </div>

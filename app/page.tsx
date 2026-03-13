@@ -76,7 +76,8 @@ export default function Home() {
         // data can be Uint8Array or string, we need Uint8Array to create a Blob
         // Also handle SharedArrayBuffer issue by ensuring we have a plain ArrayBuffer or Uint8Array
         const uint8Data = typeof data === 'string' ? new TextEncoder().encode(data) : data;
-        const blob = new Blob([uint8Data], { type: "video/mp4" });
+        // Copy to a new Uint8Array to ensure we have a plain ArrayBuffer (BlobPart compatible)
+        const blob = new Blob([new Uint8Array(uint8Data)], { type: "video/mp4" });
         const url = URL.createObjectURL(blob);
 
         generatedClips.push({

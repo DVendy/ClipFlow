@@ -22,9 +22,9 @@ export default function Hero() {
             <h1 className="text-5xl md:text-7xl font-black tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
               MomentClipper
             </h1>
-            <p className="text-xl md:text-2xl font-bold text-primary italic">
-              Cut video moments instantly in your browser.
-            </p>
+            <h2 className="text-xl md:text-2xl font-bold text-primary italic">
+              Cut and export video highlights directly in your browser
+            </h2>
           </div>
 
           <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
